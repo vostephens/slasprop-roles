@@ -13,6 +13,8 @@ const users = [
     { id: 6, userID: 'assistantCR', password: 'assistantCR123', role: 'Assistant Chief Registrar' },
     { id: 7, userID: 'SLTROfficer', password: 'SLTROfficer123', role: 'SLTR Officer' },
     { id: 8, userID: 'deptSLTROfficer', password: 'deptSLTROfficer123', role: 'Deputy SLTR Officer' },
+    { id: 9, userID: 'GISOfficer', password: 'GISOfficer123', role: 'GIS Officer' },
+
 ]
 
 export const AuthProvider = ({ children }) => {

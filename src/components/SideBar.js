@@ -288,6 +288,45 @@ const SideBar = () => {
     },
     ];
 
+    const GISOfficerOptions = [
+        {
+            id:1,
+            name: 'Dashboard',
+            address:''
+        },
+        {
+            id:2,
+            name: 'Parcel Data Packets',
+            address:'gis-parcel-data-packets'
+        },
+        {
+            id:3,
+            name: 'Field Data Collected By The Field Teams',
+            address:'field-teams-collected-list'
+        },
+        {
+            id:4,
+            name: 'Approved Maps by SLTR Officer',
+            address:'approved-sltr-maps'
+        },
+
+        {
+            id:5,
+            name: 'Notifications',
+            address:'notifications'
+        },
+        {
+            id:6,
+            name: 'FAQS',
+            address:'faqs'
+        },
+        {
+            id:7,
+            name: 'Settings',
+            address:'settings'
+        },
+    ];
+
     const borderBottoms = {
     Settings:'none'
     };
@@ -489,8 +528,27 @@ const SideBar = () => {
                       ))
                 }
 
-{
+                {
                     user.role==='Deputy SLTR Officer' && DeptSLTROfficerOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+                {
+                    user.role==='GIS Officer' && GISOfficerOptions.map((option) => (
                         <ListItem disablePadding key={option.id}>
                           <ListItemButton
                               sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}

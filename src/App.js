@@ -24,6 +24,11 @@ import AssignedChiefRegistrarTasks from "./pages/AssignedChiefRegistrarTasks";
 import RegistrationGISOfficerRequests from "./pages/RegistrationGISOfficerRequests";
 import EditTaskData from "./pages/EditTaskData";
 import AssignedSLTRRequests from "./pages/AssignedSLTRRequests";
+import GISParcelDataPackets from "./pages/GISParcelPacketsData";
+import CreateGISParcelDataPackets from "./pages/CreateGISParcelDataPackets";
+import FieldDataCollectedList from "./pages/FieldDataCollectedList";
+import ParcelDetails from "./pages/ParcelDetails";
+import ApprovedMapsSLTROfficer from "./pages/ApprovedMapsSLTROfficer";
 
 const App = () =>{
     return (
@@ -48,11 +53,16 @@ const App = () =>{
                         <Route path='sltr-officer-requests-sent' element={<RequestsSentToSurveyorGeneral/>}/>
                         <Route path='sltr-officer-requests' element={<RequestsFromSLTROfficer/>}/>
                         <Route path='schedule-task-details/:id' element={<ScheduleTaskDetails/>}/>
+                        <Route path='parcel-details/:id' element={<ParcelDetails/>}/>
                         <Route path='task-details/:id/edit' element={<EditTaskData/>}/>
+                        <Route path='approved-sltr-maps' element={<ApprovedMapsSLTROfficer/>}/>
                         <Route path='governor-approval-requests' element={<GovernorApprovalRequests/>}/>
                         <Route path='schedule-field-tasks' element={<ScheduleFieldTasks/>}/>
                         <Route path ='assigned-sltr-requests' element ={<AssignedSLTRRequests/>}/>
+                        <Route path='gis-parcel-data-packets' element={<GISParcelDataPackets/>}/>
+                        <Route path='create-parcel-data-packet' element={<CreateGISParcelDataPackets/>}/>
                         <Route path='land-bureau-requests' element={<RequestFromLandBureau/>}/>
+                        <Route path='field-teams-collected-list' element={<FieldDataCollectedList/>}/>                       
                         <Route path='settings' element={<Settings/>}/>
                         <Route path='messages' element={<Messages/>}/>
                         <Route path='faqs' element={<FAQS/>}/>

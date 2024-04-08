@@ -10,7 +10,7 @@ import { useAuth } from '../hooks/useAuth';
 const DropDownMenu = (props) => {
 
     const {user} = useAuth();
-    let temp = (user.role==='Sensitization Officer'&& 'schedule-task-details') || 'task-details';
+    let temp = ((user.role==='Sensitization Officer'&& 'schedule-task-details') || (user.role==='GIS Officer'&& 'parcel-details')) || 'task-details';
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -44,7 +44,7 @@ const DropDownMenu = (props) => {
                     onClick={handleClose}
                     component={Link}
                     to={`/dashboard/${temp}/${props.task.id}`}
-                    state={{ task: props.task , heading:props.heading}}
+                    state={{ task: props.task }}
                 >
             Details
                 </MenuItem>

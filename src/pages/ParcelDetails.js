@@ -2,27 +2,25 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
-import ScheduleTaskLocation from '../components/ScheduleTaskLocation';
-import ScheduleTaskDialog from '../modals/ScheduleTaskDialog';
+import TaskMembers from '../components/TaskMembers';
+import Location from '../components/Location';
+import ImageGallery from '../components/ImageGallery';
+import DownloadForm from '../components/DownLoadForm';
 
-const ScheduleTaskDetails = () => {
+const ParcelDetails = () => {
 
     const {state} = useLocation();
-    const [dateAndTime, setDateAndTime ]= React.useState('');
-
 
     const statusColors = {
-        unscheduled:'#F19866',
-        scheduled:'#09841D',
+        pending:'#D4601E',
+        approved:'#09841D',
+        failed:'red'
     };
 
-    const handleStatusChange = (event) => {
-        setStatus(event.target.value);
-    };
 
     return (
         <>
-        <Box sx={{ minHeight: 500, mb:2}}>
+        <Box sx={{ minHeight: 500 }}>
             <Box
 
                 sx={{
@@ -34,7 +32,7 @@ const ScheduleTaskDetails = () => {
                 }}
             >
                 <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-                    Task Details
+                    Parcel Details
                 </Typography>
             </Box>
 
@@ -43,7 +41,7 @@ const ScheduleTaskDetails = () => {
                     {state.task.status}
                 </Typography>
             </Box>
-                                
+
             <Box sx={{display:'flex', border: '1px solid lightgrey', marginLeft: '25%',px:2, py:4, justifyContent:'space-between'}}>
                 <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
                     <Typography sx={{fontSize:11, color:'gray'}}>
@@ -59,16 +57,16 @@ const ScheduleTaskDetails = () => {
                         Date & Time
                     </Typography>
                     <Typography sx={{fontWeight:'bold', fontSize:12, mr:14}}>
-                        {state.task.scheduledAt}
+                        {state.task.createdAt}
                     </Typography>
                 </Box>
 
                 <Box sx={{display:'flex', flexDirection:'column', }}>
                     <Typography sx={{fontSize:11, color:'gray'}}>
-                        Name of the current owner
+                        Updated Date & Time
                     </Typography>
                     <Typography sx={{fontWeight:'bold', fontSize:12, mr:14}}>
-                        {state.task.currentOwner}
+                        {state.task.sentOn}
                     </Typography>
                 </Box>
             </Box>
@@ -153,21 +151,21 @@ const ScheduleTaskDetails = () => {
 
                 </Box> 
                 
-                <Box sx={{backgroundColor:'#DF593D',display:'flex', flexDirection:'column', maxHeight:50, p:2}}>
-                    <Box sx={{display:'flex'}}>
-                        <Typography sx={{color:'white', fontSize:14, fontWeight:'bold'}}>
-                            {dateAndTime==='' ? 'Schedule The Task': 'Task Scheduled'}
-                        </Typography>
-                        <ScheduleTaskDialog setDateAndTime= {setDateAndTime}/>
-                    </Box>
-                    {
-                        dateAndTime!=='' && <Typography sx={{color:'white', fontSize:12}}>{dateAndTime.toString()} </Typography>
-                    }
-
+                <Box>
+                    <TaskMembers task={state.task}/>
                 </Box>
             </Box>
 
-            <ScheduleTaskLocation task ={state.task}/>                       
+            <Location task ={state.task}/>
+
+            <Box sx={{marginLeft:'25%', mt:2, display:'flex', justifyContent:'space-between', mb:2}}>
+                <Box sx={{maxWidth:550}}>
+                    <ImageGallery/>
+                </Box>
+                <Box sx={{mt:-10}}>
+                    <DownloadForm task={state.task}/>
+                </Box>
+            </Box>      
         </Box>
 
         <Footer />
@@ -176,4 +174,4 @@ const ScheduleTaskDetails = () => {
 
 }
 
-export default ScheduleTaskDetails
+export default ParcelDetails
