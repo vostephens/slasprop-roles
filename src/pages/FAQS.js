@@ -13,7 +13,7 @@ const FAQS = () => {
 
     return (
         <>
-            <Box sx={{ minHeight: 500 , marginLeft:'25%'}}>
+            <Box sx={{ minHeight: 500 , marginLeft:'25%', mb:10}}>
                 <Box
                     sx={{
                         mt: 4,

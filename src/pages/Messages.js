@@ -9,7 +9,7 @@ const Messages = () => {
 
   return (
       <>
-        <Box sx={{marginLeft:"26%", mt:2, pb:2}}>
+        <Box sx={{marginLeft:"26%", mt:2, pb:2, mb:10}}>
             <Grid container>
                 <Grid item xs={12} >
                     <Typography variant='h6'sx={{fontWeight:"bold"}} className="header-message">Chat</Typography>

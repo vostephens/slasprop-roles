@@ -4,8 +4,11 @@ import { Box } from '@mui/material';
 import { MapContainer, Marker, Popup } from 'react-leaflet';
 import { TileLayer } from 'react-leaflet/TileLayer';
 import Claimants from './Claimants';
+import { useAuth } from '../hooks/useAuth';
 
 const Location = (props) => {
+
+    const {user} = useAuth();
     const handleDragEnd = (e) => {
         const { lat, lng } = e.target.getLatLng();
         console.log(`Lat: ${lat}, Lon: ${lng}`);

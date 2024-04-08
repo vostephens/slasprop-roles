@@ -43,8 +43,8 @@ const DropDownMenu = (props) => {
                 <MenuItem
                     onClick={handleClose}
                     component={Link}
-                    to={`/dashboard/${temp}/${props.task.taskID}`}
-                    state={{ task: props.task }}
+                    to={`/dashboard/${temp}/${props.task.id}`}
+                    state={{ task: props.task , heading:props.heading}}
                 >
             Details
                 </MenuItem>

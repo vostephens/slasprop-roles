@@ -4,36 +4,16 @@ import { Box, Typography } from '@mui/material';
 import Footer from '../components/Footer';
 import DropDownMenu from '../components/DropDownMenu';
 
-const RequestFromLandBureau = () => {
+const RegistrationGISOfficerRequests = () => {
+
+    const [heading, setHeading] = React.useState(true);
 
     const tasks =[
         {
-            id: 'TASK36183681',
+            id: 'TASK36231381',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'New',
-            deniedBy:'Indraniel Sen',
-            reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
-            landType:'Sample Data',
-            regNo:'4568023131333',
-            propTaxID:'HGTY13797131',
-            location:'Sample Data',
-            zip:462920,
-            address:'1245 Texas Road Texas',
-            currentOwner:'Indraniel Sen',
-            registrar:'Andraniel Senna',
-            OwnerDetails:{
-                owner:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
-                totalYears: ['2015-2017','2017-2019','2019-Till Date'],
-                initials:['IS','AD', 'CD']
-            }
-        },
-
-        {
-            id: 'TASK36233681',
-            createdAt:'10-12-2023 | 15:45 PM',
-            sentOn:'10-12-2023 | 15:46 PM',
-            status:'New',
+            status:'denied',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -59,7 +39,78 @@ const RequestFromLandBureau = () => {
             }
 
         },
+
+        {
+            id: 'TASK36233681',
+            createdAt:'10-12-2023 | 15:45 PM',
+            sentOn:'10-12-2023 | 15:46 PM',
+            status:'approved',
+            deniedBy:'Indraniel Sen',
+            reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
+            landType:'Sample Data',
+            regNo:'4568023131333',
+            propTaxID:'HGTY13797131',
+            location:'Sample Data',
+            zip:462920,
+            address:'1245 Texas Road Texas',
+            currentOwner:'Indraniel Sen',
+            registrar:'Andraniel Senna',
+            taskMembers:{
+                name:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
+                role: ['Demarcation Officer','Recording Officer','Field Assistant'],
+                initials:['IS','AD', 'CD']
+            },
+            claimants:{
+                name:['Indrani Sen', 'Arindam Dutta'],
+                initials:['IS','AD']
+            },
+            forms:{
+                name:['SLTR Demarcation Form', 'SLTR Rights Claim Form', 'SLTR Receipts Form', 'SLTR Dispute Form'],
+                type:['SLTR-F1','SLTR-F2','SLTR-F3','SLTR-F5']
+            }
+
+        },
+
+        {
+            id: 'TASK36231681',
+            createdAt:'10-12-2023 | 15:45 PM',
+            sentOn:'10-12-2023 | 15:46 PM',
+            status:'assigned',
+            deniedBy:'Indraniel Sen',
+            reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
+            landType:'Sample Data',
+            regNo:'4568023131333',
+            propTaxID:'HGTY13797131',
+            location:'Sample Data',
+            zip:462920,
+            address:'1245 Texas Road Texas',
+            currentOwner:'Indraniel Sen',
+            registrar:'Andraniel Senna',
+            taskMembers:{
+                name:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
+                role: ['Demarcation Officer','Recording Officer','Field Assistant'],
+                initials:['IS','AD', 'CD']
+            },
+            claimants:{
+                name:['Indrani Sen', 'Arindam Dutta'],
+                initials:['IS','AD']
+            },
+            forms:{
+                name:['SLTR Demarcation Form', 'SLTR Rights Claim Form', 'SLTR Receipts Form', 'SLTR Dispute Form'],
+                type:['SLTR-F1','SLTR-F2','SLTR-F3','SLTR-F5']
+            }
+
+        },
+
+
     ]
+
+    const statusColors = {
+        assigned:'#D4601E',
+        approved:'#09841D',
+        denied:'red'
+    };
+
     return (
         <>
             <Box sx={{ minHeight: 500 }}>
@@ -73,7 +124,7 @@ const RequestFromLandBureau = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Requests from the Land Records Bureau
+            Requests From the Registration Officers & GIS Officers
                     </Typography>
                 </Box>
 
@@ -112,12 +163,12 @@ const RequestFromLandBureau = () => {
                                     <Typography sx={{fontSize:11, color:'gray'}}>
                                         Request Status
                                     </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, color:'orange'}}>
+                                    <Typography sx={{fontWeight:'bold', fontSize:12, color: statusColors[task.status] ?? 'gray', textTransform:'capitalize'}}>
                                         {task.status}
                                     </Typography>
                                 </Box>
 
-                                <DropDownMenu task= {task}/>                                
+                                <DropDownMenu task= {task} heading= {heading}/>                                
                             </Box>
                         ))
                     }
@@ -130,4 +181,4 @@ const RequestFromLandBureau = () => {
     );
 };
 
-export default RequestFromLandBureau;
+export default RegistrationGISOfficerRequests;

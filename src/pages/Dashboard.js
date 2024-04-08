@@ -101,7 +101,7 @@ const Dashboard = () => {
                 </Box>
             </Box>
 
-            <Box sx={{ marginLeft: '25%', mt: 2, mb: 2 }}>
+            <Box sx={{ marginLeft: '25%', mt: 2, mb: 10 }}>
                 <Typography sx={{ fontWeight: 'bold' }}>Recent Transactions</Typography>
                 <TransactionTable />
             </Box>

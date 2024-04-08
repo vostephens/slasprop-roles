@@ -77,76 +77,219 @@ const SideBar = () => {
         },
       ];
 
+    const ChiefRegistrarOptions = [
+    {
+        id:1,
+        name: 'Dashboard',
+        address:''
+    },
+    {
+        id:2,
+        name: 'Requests From The Surveyor General',
+        address:'surveyor-general-requests'
+    },
+    {
+        id:3,
+        name: 'Requests Sent To The Governor',
+        address:'governor-requests-sent'
+    },
+    {
+        id:4,
+        name: 'Manage Assistant Chief Registrar of Deeds ',
+        address:'manage-assistant-crds'
+    },
+    
+    {
+        id:5,
+        name: 'Notifications',
+        address:'notifications'
+    },
+    {
+        id:6,
+        name: 'FAQS',
+        address:'faqs'
+    },
+    {
+        id:7,
+        name: 'Settings',
+        address:'settings'
+    },
+    ];
+
+    const AssistantChiefRegistrarOptions = [
+    {
+        id:1,
+        name: 'Dashboard',
+        address:''
+    },
+    {
+        id:2,
+        name: 'Assigned By Chief Registrar of Deeds',
+        address:'assigned-cr-requests'
+    },
+    {
+        id:3,
+        name: 'Requests Sent To The Governor',
+        address:'governor-requests-sent'
+    },        
+    {
+        id:4,
+        name: 'Notifications',
+        address:'notifications'
+    },
+    {
+        id:5,
+        name: 'FAQS',
+        address:'faqs'
+    },
+    {
+        id:7,
+        name: 'Settings',
+        address:'settings'
+    },
+    ];
+
+    const SLTROfficerOptions = [
+    {
+        id:1,
+        name: 'Dashboard',
+        address:''
+    },
+    {
+        id:2,
+        name: 'From Registration Officers & GIS Officers',
+        address:'registration-gis-requests'
+    },
+    {
+        id:3,
+        name: 'Requests Sent To The Land Records Bureau',
+        address:'land-bureau-requests-sent'
+    },
+    {
+        id:4,
+        name: 'Manage Deputy SLTR Officers ',
+        address:'manage-assistant-crds'
+    },
+    
+    {
+        id:5,
+        name: 'Notifications',
+        address:'notifications'
+    },
+    {
+        id:6,
+        name: 'FAQS',
+        address:'faqs'
+    },
+    {
+        id:7,
+        name: 'Settings',
+        address:'settings'
+    },
+    ];
+
+    const DeptSLTROfficerOptions = [
+        {
+            id:1,
+            name: 'Dashboard',
+            address:''
+        },
+        {
+            id:2,
+            name: 'Assigned By SLTR Officer',
+            address:'assigned-sltr-requests'
+        },
+        {
+            id:3,
+            name: 'Requests Sent To The Land Records Bureau',
+            address:'land-bureau-requests-sent'
+        },
+        {
+            id:4,
+            name: 'Notifications',
+            address:'notifications'
+        },
+        {
+            id:5,
+            name: 'FAQS',
+            address:'faqs'
+        },
+        {
+            id:6,
+            name: 'Settings',
+            address:'settings'
+        },
+    ];
 
     const LandBureauRecordsOptions = [
-        {
-            id:1,
-            name: 'Dashboard',
-            address:''
-        },
-        {
-            id:2,
-          name: 'Requests From The SLTR Officer',
-          address:'sltr-officer-requests'
-        },
-        {
-            id:3,
-          name: 'Requests Sent To Surveyor General',
-          address:'sltr-officer-requests-sent'
-        },
-        {
-            id:4,
-            name: 'Notifications',
-            address:'notifications'
-        },
-        {
-            id:5,
-            name: 'FAQS',
-            address:'faqs'
-        },
-        {
-            id:6,
-            name: 'Settings',
-            address:'settings'
-        },
-      ];
+    {
+        id:1,
+        name: 'Dashboard',
+        address:''
+    },
+    {
+        id:2,
+        name: 'Requests From The SLTR Officer',
+        address:'sltr-officer-requests'
+    },
+    {
+        id:3,
+        name: 'Requests Sent To Surveyor General',
+        address:'sltr-officer-requests-sent'
+    },
+    {
+        id:4,
+        name: 'Notifications',
+        address:'notifications'
+    },
+    {
+        id:5,
+        name: 'FAQS',
+        address:'faqs'
+    },
+    {
+        id:6,
+        name: 'Settings',
+        address:'settings'
+    },
+    ];
 
 
-      const SurveyorGeneralOptions = [
-        {
-            id:1,
-            name: 'Dashboard',
-            address:''
-        },
-        {
-            id:2,
-          name: 'Requests From The Land Bureau Records',
-          address:'land-bureau-requests'
-        },
-        {
-            id:3,
-          name: 'Requests Sent',
-          address:'land-bureau-requests-sent'
-        },
-        {
-            id:4,
-            name: 'Notifications',
-            address:'notifications'
-        },
-        {
-            id:5,
-            name: 'FAQS',
-            address:'faqs'
-        },
-        {
-            id:6,
-            name: 'Settings',
-            address:'settings'
-        },
-      ];
+    const SurveyorGeneralOptions = [
+    {
+        id:1,
+        name: 'Dashboard',
+        address:''
+    },
+    {
+        id:2,
+        name: 'Requests From The Land Bureau Records',
+        address:'land-bureau-requests'
+    },
+    {
+        id:3,
+        name: 'Requests Sent',
+        address:'land-bureau-requests-sent'
+    },
+    {
+        id:4,
+        name: 'Notifications',
+        address:'notifications'
+    },
+    {
+        id:5,
+        name: 'FAQS',
+        address:'faqs'
+    },
+    {
+        id:6,
+        name: 'Settings',
+        address:'settings'
+    },
+    ];
 
-      const borderBottoms = {
-        Settings:'none'
+    const borderBottoms = {
+    Settings:'none'
     };
     
 
@@ -247,7 +390,7 @@ const SideBar = () => {
                 }
 
                 
-{
+                {
                     user.role==='Governor' &&
                     GovernorOptions.map((option) => (
                         <ListItem disablePadding key={option.id}>
@@ -270,6 +413,84 @@ const SideBar = () => {
                 {
                     user.role==='Sensitization Officer' &&
                     SensitizationOfficerOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+                {
+                    user.role==='Chief Registrar' &&
+                    ChiefRegistrarOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+                {
+                    user.role==='Assistant Chief Registrar' &&
+                    AssistantChiefRegistrarOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+                {
+                    user.role==='SLTR Officer' && SLTROfficerOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+{
+                    user.role==='Deputy SLTR Officer' && DeptSLTROfficerOptions.map((option) => (
                         <ListItem disablePadding key={option.id}>
                           <ListItemButton
                               sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}

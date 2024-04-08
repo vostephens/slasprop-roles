@@ -1,7 +1,8 @@
 import React from 'react';
-import { Box, FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import { Box, FormControl, InputLabel, MenuItem, Select, Typography, Button } from '@mui/material';
+import BorderColorOutlinedIcon from '@mui/icons-material/BorderColorOutlined';
 
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import TaskMembers from '../components/TaskMembers';
 import Location from '../components/Location';
@@ -35,8 +36,28 @@ const TaskDetails = () => {
                 }}
             >
                 <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-                    {state.task.status==='new'? "Details" : "Request Details"}
+                    {(user.role==='SLTR Officer'|| user.role==='Deputy SLTR Officer')? "Task Details": "Request Details"}
                 </Typography>
+                {
+                    ((user.role==='SLTR Officer'|| user.role==='Deputy SLTR Officer') && state.heading===true) && 
+                    <Button 
+                        component={Link}
+                        to={`/dashboard/task-details/${state.task.id}/edit`}
+                        state={{ task: state.task }}
+                        sx={{
+                            "backgroundColor": '#DF593D',
+                            "color": 'white',
+                            "borderRadius": '0px',
+                            "ml": 2,
+                            "p": 2,
+                            "textTransform": 'capitalize',
+                            '&:hover': { backgroundColor: '#DF593D' }
+                        }}
+                    >
+                    <BorderColorOutlinedIcon /> &nbsp;Edit Data
+                    </Button>
+      
+                }
             </Box>
 
             <Box sx={{border: '1px solid lightgrey', marginLeft: '25%',p:1, mt:4}}>
@@ -46,7 +67,7 @@ const TaskDetails = () => {
                             Task ID
                         </Typography>
                         <Typography sx={{fontWeight:'bold', fontSize:12, mr:4}}>
-                            {state.task.taskID}
+                            {state.task.id}
                         </Typography>
                     </Box>
 
@@ -76,7 +97,7 @@ const TaskDetails = () => {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={status}
-                            label="Parent Role"
+                            label="Status"
                             onChange={handleStatusChange}
                             style={{ height: 30 }}
                         >

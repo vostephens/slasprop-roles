@@ -17,6 +17,13 @@ import RequestsSentToSurveyorGeneral from "./pages/RequestsSentToSurveyorGeneral
 import ScheduleFieldTasks from "./pages/ScheduleFieldTasks";
 import ScheduleTaskDetails from "./pages/ScheduleTaskDetails";
 import GovernorApprovalRequests from "./pages/GovernorApprovalRequests";
+import GovernorSentRequets from "./pages/GovernorSentRequests";
+import SurveyorGeneralRequests from "./pages/SurveyorGeneralRequests";
+import ManageAssistantChiefRegistrarDeeds from "./pages/ManageAssistantChiefRegistrarDeeds";
+import AssignedChiefRegistrarTasks from "./pages/AssignedChiefRegistrarTasks";
+import RegistrationGISOfficerRequests from "./pages/RegistrationGISOfficerRequests";
+import EditTaskData from "./pages/EditTaskData";
+import AssignedSLTRRequests from "./pages/AssignedSLTRRequests";
 
 const App = () =>{
     return (
@@ -33,11 +40,18 @@ const App = () =>{
                     >
                         <Route index element={<Dashboard />} />
                         <Route path='land-bureau-requests-sent' element={<RequestsSent/>}/>
+                        <Route path ='surveyor-general-requests' element ={<SurveyorGeneralRequests/>}/>
+                        <Route path ='assigned-cr-requests' element ={<AssignedChiefRegistrarTasks/>}/>
+                        <Route path ='governor-requests-sent' element={<GovernorSentRequets/>}/>
+                        <Route path ='registration-gis-requests' element={<RegistrationGISOfficerRequests/>}/>
+                        <Route path ='manage-assistant-crds' element={<ManageAssistantChiefRegistrarDeeds/>}/>
                         <Route path='sltr-officer-requests-sent' element={<RequestsSentToSurveyorGeneral/>}/>
                         <Route path='sltr-officer-requests' element={<RequestsFromSLTROfficer/>}/>
                         <Route path='schedule-task-details/:id' element={<ScheduleTaskDetails/>}/>
+                        <Route path='task-details/:id/edit' element={<EditTaskData/>}/>
                         <Route path='governor-approval-requests' element={<GovernorApprovalRequests/>}/>
                         <Route path='schedule-field-tasks' element={<ScheduleFieldTasks/>}/>
+                        <Route path ='assigned-sltr-requests' element ={<AssignedSLTRRequests/>}/>
                         <Route path='land-bureau-requests' element={<RequestFromLandBureau/>}/>
                         <Route path='settings' element={<Settings/>}/>
                         <Route path='messages' element={<Messages/>}/>

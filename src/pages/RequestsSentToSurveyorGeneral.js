@@ -8,7 +8,7 @@ const RequestsSentToSurveyorGeneral = () => {
 
     const tasks =[
         {
-            taskID: 'TASK36183681',
+            id: 'TASK36183681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
             status:'pending',
@@ -30,7 +30,7 @@ const RequestsSentToSurveyorGeneral = () => {
         },
 
         {
-            taskID: 'TASK36233681',
+            id: 'TASK36233681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
             status:'approved',
@@ -92,7 +92,7 @@ const RequestsSentToSurveyorGeneral = () => {
                                         Task ID
                                     </Typography>
                                     <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                        {task.taskID}
+                                        {task.id}
                                     </Typography>
                                 </Box>
 

@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import ScheduleTaskLocation from '../components/ScheduleTaskLocation';
-import ScheduleTaskDialog from '../components/ScheduleTaskDialog';
+import ScheduleTaskDialog from '../modals/ScheduleTaskDialog';
 
 const ScheduleTaskDetails = () => {
 
@@ -50,7 +50,7 @@ const ScheduleTaskDetails = () => {
                         Task ID
                     </Typography>
                     <Typography sx={{fontWeight:'bold', fontSize:12, mr:14}}>
-                        {state.task.taskID}
+                        {state.task.id}
                     </Typography>
                 </Box>
 

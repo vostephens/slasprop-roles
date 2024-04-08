@@ -8,7 +8,7 @@ const LandRequestsSent = () => {
 
     const tasks =[
         {
-            taskID: 'TASK36183681',
+            id: 'TASK36233181',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
             status:'pending',
@@ -22,15 +22,24 @@ const LandRequestsSent = () => {
             address:'1245 Texas Road Texas',
             currentOwner:'Indraniel Sen',
             registrar:'Andraniel Senna',
-            OwnerDetails:{
-                owner:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
-                totalYears: ['2015-2017','2017-2019','2019-Till Date'],
+            taskMembers:{
+                name:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
+                role: ['Demarcation Officer','Recording Officer','Field Assistant'],
                 initials:['IS','AD', 'CD']
+            },
+            claimants:{
+                name:['Indrani Sen', 'Arindam Dutta'],
+                initials:['IS','AD']
+            },
+            forms:{
+                name:['SLTR Demarcation Form', 'SLTR Rights Claim Form', 'SLTR Receipts Form', 'SLTR Dispute Form'],
+                type:['SLTR-F1','SLTR-F2','SLTR-F3','SLTR-F5']
             }
+
         },
 
         {
-            taskID: 'TASK36233681',
+            id: 'TASK36233681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
             status:'approved',
@@ -92,7 +101,7 @@ const LandRequestsSent = () => {
                                         Task ID
                                     </Typography>
                                     <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                        {task.taskID}
+                                        {task.id}
                                     </Typography>
                                 </Box>
 

@@ -10,6 +10,7 @@ import {
 import Looks3Icon from '@mui/icons-material/Looks3';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import Footer from '../components/Footer';
 
 const Notifications = () => {
     const notifications = [
@@ -22,7 +23,7 @@ const Notifications = () => {
 
     return (
         <>
-            <Box sx={{ minHeight: 500 }}>
+            <Box sx={{ minHeight: 500, mb:10 }}>
                 <Box
                     sx={{
                         marginLeft: '30%',
@@ -33,7 +34,7 @@ const Notifications = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Notifcations
+            Notifications
                     </Typography>
                 </Box>
 
@@ -153,6 +154,8 @@ const Notifications = () => {
                     </Box>
                 </Box>
             </Box>
+
+            <Footer/>
         </>
     );
 };

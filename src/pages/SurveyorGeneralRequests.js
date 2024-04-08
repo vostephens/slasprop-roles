@@ -4,14 +4,14 @@ import { Box, Typography } from '@mui/material';
 import Footer from '../components/Footer';
 import DropDownMenu from '../components/DropDownMenu';
 
-const RequestFromLandBureau = () => {
+const SurveyorGeneralRequests = () => {
 
     const tasks =[
         {
             id: 'TASK36183681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'New',
+            status:'new',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -33,7 +33,7 @@ const RequestFromLandBureau = () => {
             id: 'TASK36233681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'New',
+            status:'approved',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -60,9 +60,16 @@ const RequestFromLandBureau = () => {
 
         },
     ]
+
+    const statusColors = {
+        new:'orange',
+        approved:'#09841D',
+        failed:'red'
+    };
+
     return (
         <>
-            <Box sx={{ minHeight: 500 }}>
+            <Box sx={{ minHeight: 500, mb: 10 }}>
                 <Box
                     sx={{
                         marginLeft: '25%',
@@ -73,7 +80,7 @@ const RequestFromLandBureau = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Requests from the Land Records Bureau
+            Requests from the Surveyor General
                     </Typography>
                 </Box>
 
@@ -112,7 +119,7 @@ const RequestFromLandBureau = () => {
                                     <Typography sx={{fontSize:11, color:'gray'}}>
                                         Request Status
                                     </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, color:'orange'}}>
+                                    <Typography sx={{fontWeight:'bold', fontSize:12, color: statusColors[task.status] ?? 'gray', textTransform:'capitalize'}}>
                                         {task.status}
                                     </Typography>
                                 </Box>
@@ -130,4 +137,4 @@ const RequestFromLandBureau = () => {
     );
 };
 
-export default RequestFromLandBureau;
+export default SurveyorGeneralRequests;

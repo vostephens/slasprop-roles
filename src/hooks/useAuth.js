@@ -9,6 +9,10 @@ const users = [
     { id: 2, userID: 'surveyorGeneral', password: 'surveyorGeneral123', role: 'Surveyor General' },
     { id: 3, userID: 'sensitizationOfficer', password: 'sensitizationOfficer123', role: 'Sensitization Officer' },
     { id: 4, userID: 'governor', password: 'Governor123', role: 'Governor' },
+    { id: 5, userID: 'chiefRegistrar', password: 'chiefRegistrar123', role: 'Chief Registrar' },
+    { id: 6, userID: 'assistantCR', password: 'assistantCR123', role: 'Assistant Chief Registrar' },
+    { id: 7, userID: 'SLTROfficer', password: 'SLTROfficer123', role: 'SLTR Officer' },
+    { id: 8, userID: 'deptSLTROfficer', password: 'deptSLTROfficer123', role: 'Deputy SLTR Officer' },
 ]
 
 export const AuthProvider = ({ children }) => {

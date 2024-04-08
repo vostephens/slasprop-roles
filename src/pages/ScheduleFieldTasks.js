@@ -8,7 +8,7 @@ const ScheduleFieldTasks = () => {
 
     const tasks =[
         {
-            taskID: 'TASK36183681',
+            id: 'TASK36183681',
             scheduledAt:'10-12-2023 | 15:45 PM',
             status:'scheduled',
             deniedBy:'Indraniel Sen',
@@ -29,7 +29,7 @@ const ScheduleFieldTasks = () => {
         },
 
         {
-            taskID: 'TASK36233681',
+            id: 'TASK36233681',
             scheduledAt:'10-12-2023 | 15:45 PM',
             status:'unscheduled',
             deniedBy:'Indraniel Sen',
@@ -97,7 +97,7 @@ const ScheduleFieldTasks = () => {
                                             Task ID
                                         </Typography>
                                         <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                            {task.taskID}
+                                            {task.id}
                                         </Typography>
                                     </Box>
 
