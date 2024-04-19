@@ -3,15 +3,19 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Footer from '../components/Footer';
 import DropDownMenu from '../components/DropDownMenu';
+import { ClaimantsViewContext } from '../App';
 
-const RequestsSentToSurveyorGeneral = () => {
+const SLTRRequestsSent = () => {
+
+    const myIsClaimants = React.useContext(ClaimantsViewContext);
+    myIsClaimants.setIsMenuOpen(true);
 
     const tasks =[
         {
-            id: 'TASK36183681',
+            id: 'TASK36233181',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'pending',
+            status:'denied',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -72,12 +76,13 @@ const RequestsSentToSurveyorGeneral = () => {
 
     const statusColors = {
         pending:'#D4601E',
-        approved:'#09841D'
+        approved:'#09841D',
+        denied:'red',
     };
 
     return (
         <>
-            <Box sx={{ minHeight: 500 }}>
+            <Box sx={{ minHeight: 500, mb: 16 }}>
                 <Box
                     sx={{
                         marginLeft: '25%',
@@ -88,7 +93,7 @@ const RequestsSentToSurveyorGeneral = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Requests sent to the Surveyor General
+            Requests Sent to SLTR Officer
                     </Typography>
                 </Box>
 
@@ -145,4 +150,4 @@ const RequestsSentToSurveyorGeneral = () => {
     );
 };
 
-export default RequestsSentToSurveyorGeneral;
+export default SLTRRequestsSent;

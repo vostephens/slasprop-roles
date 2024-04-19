@@ -22,11 +22,20 @@ const RequestsFromSLTROfficer = () => {
             address:'1245 Texas Road Texas',
             currentOwner:'Indraniel Sen',
             registrar:'Andraniel Senna',
-            OwnerDetails:{
-                owner:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
-                totalYears: ['2015-2017','2017-2019','2019-Till Date'],
+            taskMembers:{
+                name:['Indrani Sen', 'Arindam Dutta', 'Chijrant Debnath'],
+                role: ['Demarcation Officer','Recording Officer','Field Assistant'],
                 initials:['IS','AD', 'CD']
+            },
+            claimants:{
+                name:['Indrani Sen', 'Arindam Dutta'],
+                initials:['IS','AD']
+            },
+            forms:{
+                name:['SLTR Demarcation Form', 'SLTR Rights Claim Form', 'SLTR Receipts Form', 'SLTR Dispute Form'],
+                type:['SLTR-F1','SLTR-F2','SLTR-F3','SLTR-F5']
             }
+
         },
 
         {

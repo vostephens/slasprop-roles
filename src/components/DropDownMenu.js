@@ -6,8 +6,12 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
+import { ClaimantsViewContext } from '../App';
+import AssignRegTaskDialog from '../modals/AssignRegTaskDialog';
 
 const DropDownMenu = (props) => {
+
+    const myIsClaimants = React.useContext(ClaimantsViewContext);
 
     const {user} = useAuth();
     let temp = ((user.role==='Sensitization Officer'&& 'schedule-task-details') || (user.role==='GIS Officer'&& 'parcel-details')) || 'task-details';
@@ -44,10 +48,18 @@ const DropDownMenu = (props) => {
                     onClick={handleClose}
                     component={Link}
                     to={`/dashboard/${temp}/${props.task.id}`}
-                    state={{ task: props.task }}
+                    state={{ task: props.task , heading: props.heading, isClaimants: myIsClaimants.isClaimants, isMenuOpen: myIsClaimants.isMenuOpen }}
                 >
             Details
                 </MenuItem>
+
+                {
+                    (user.role==='Registration Officer' && !myIsClaimants.isMenuOpen) && 
+                    <MenuItem>
+                        <AssignRegTaskDialog/>
+                    </MenuItem>
+                }
+
             </Menu>
         </Box>
     );

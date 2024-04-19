@@ -4,8 +4,12 @@ import { Box } from '@mui/material';
 import { MapContainer, Marker, Popup } from 'react-leaflet';
 import { TileLayer } from 'react-leaflet/TileLayer';
 import Claimants from './Claimants';
+import { useAuth } from '../hooks/useAuth';
+import OwnerDetails from './OwnerDetails';
 
 const Location = (props) => {
+
+    const {user} = useAuth();
 
     const handleDragEnd = (e) => {
         const { lat, lng } = e.target.getLatLng();
@@ -34,7 +38,9 @@ const Location = (props) => {
             </MapContainer>
 
             <Box>
-                <Claimants task ={props.task}/>
+                {user.role!=='Registration Officer' && <Claimants task ={props.task}/>}
+                {(user.role==='Registration Officer' && props.isClaimants===true) && <Claimants task ={props.task}/>}
+                {(user.role==='Registration Officer' && props.isClaimants===false) && <OwnerDetails property ={props.property}/>}
             </Box>
         </Box>
     );

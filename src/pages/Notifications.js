@@ -23,7 +23,7 @@ const Notifications = () => {
 
     return (
         <>
-            <Box sx={{ minHeight: 500, mb:10 }}>
+            <Box sx={{ minHeight: 500, mb:16 }}>
                 <Box
                     sx={{
                         marginLeft: '30%',

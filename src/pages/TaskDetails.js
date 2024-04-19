@@ -36,7 +36,7 @@ const TaskDetails = () => {
                 }}
             >
                 <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-                    {(user.role==='SLTR Officer'|| user.role==='Deputy SLTR Officer')? "Task Details": "Request Details"}
+                    {(user.role==='SLTR Officer'|| user.role==='Deputy SLTR Officer' || 'Registration Officer')? "Task Details": "Request Details"}
                 </Typography>
                 {
                     ((user.role==='SLTR Officer'|| user.role==='Deputy SLTR Officer') && state.heading===true) && 
@@ -89,23 +89,65 @@ const TaskDetails = () => {
                         </Typography>
                     </Box>
 
-                    <FormControl size="small" sx={{ mt: 1 , minWidth: 170}}>
-                        <InputLabel id="demo-simple-select-label" sx={{ fontSize: '12px' }}>
-                            Change Status
-                        </InputLabel>
-                        <Select
-                            labelId="demo-simple-select-label"
-                            id="demo-simple-select"
-                            value={status}
-                            label="Status"
-                            onChange={handleStatusChange}
-                            style={{ height: 30 }}
-                        >
-                            <MenuItem value={10}>Denied</MenuItem>
-                            <MenuItem value={20}>Pending</MenuItem>
-                            <MenuItem value={30}>Completed</MenuItem>
-                        </Select>
-                    </FormControl>
+                    {   
+                        user.role!=='Registration Officer'  && 
+                        <FormControl size="small" sx={{ mt: 1 , minWidth: 170}}>
+                            <InputLabel id="demo-simple-select-label" sx={{ fontSize: '12px' }}>
+                                Change Status
+                            </InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={status}
+                                label="Status"
+                                onChange={handleStatusChange}
+                                style={{ height: 30 }}
+                            >
+                                <MenuItem value={10}>Denied</MenuItem>
+                                <MenuItem value={20}>Pending</MenuItem>
+                                <MenuItem value={30}>Completed</MenuItem>
+                            </Select>
+                        </FormControl>
+                    }
+
+                    {   
+                        (user.role==='Registration Officer' && state.isMenuOpen===true) && 
+                        <FormControl size="small" sx={{ mt: 1 , minWidth: 170}}>
+                            <InputLabel id="demo-simple-select-label" sx={{ fontSize: '12px' }}>
+                                Change Status
+                            </InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={status}
+                                label="Status"
+                                onChange={handleStatusChange}
+                                style={{ height: 30 }}
+                            >
+                                <MenuItem value={10}>Denied</MenuItem>
+                                <MenuItem value={20}>Pending</MenuItem>
+                                <MenuItem value={30}>Completed</MenuItem>
+                            </Select>
+                        </FormControl>
+                    }
+
+                    {
+                        (user.role==='Registration Officer' && state.isMenuOpen===false) &&
+                        <Button sx={{
+                            backgroundColor: '#DF593D',
+                            color: 'white',
+                            p: 1,
+                            borderRadius:0,
+                            textTransform: 'capitalize',
+                            '&:hover': { backgroundColor: '#DF593D' },
+                            minWidth:150                            
+                        }}>
+                            Send Data
+                        </Button>
+
+                    }
+                        
+                    
                 </Box>
 
                 <Box sx={{display:'flex', p:2}}>
@@ -214,7 +256,7 @@ const TaskDetails = () => {
                 </Box>
             </Box>
 
-            <Location task ={state.task}/>
+            <Location task ={state.task} isClaimants={state.isClaimants}/>
 
             <Box sx={{marginLeft:'25%', mt:2, display:'flex', justifyContent:'space-between'}}>
                 <Box sx={{maxWidth:550}}>

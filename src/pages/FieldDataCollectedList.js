@@ -129,7 +129,7 @@ const FieldDataCollectedList = () => {
                                         </Typography>
                                     </Box>
 
-                                    <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
+                                    <Box sx={{display:'flex', flexDirection:'column'}}>
                                         <Typography sx={{fontSize:11, color:'gray'}}>
                                             Task Sent on
                                         </Typography>

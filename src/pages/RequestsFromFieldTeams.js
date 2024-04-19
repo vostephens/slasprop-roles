@@ -3,15 +3,19 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Footer from '../components/Footer';
 import DropDownMenu from '../components/DropDownMenu';
+import { ClaimantsViewContext } from '../App';
 
-const RequestsSentToSurveyorGeneral = () => {
+const RequestsFromFieldTeams = () => {
+
+    const myIsClaimants = React.useContext(ClaimantsViewContext);
+    myIsClaimants.setIsMenuOpen(true);
 
     const tasks =[
         {
             id: 'TASK36183681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'pending',
+            status:'New',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -42,7 +46,7 @@ const RequestsSentToSurveyorGeneral = () => {
             id: 'TASK36233681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'approved',
+            status:'New',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -69,12 +73,6 @@ const RequestsSentToSurveyorGeneral = () => {
 
         },
     ]
-
-    const statusColors = {
-        pending:'#D4601E',
-        approved:'#09841D'
-    };
-
     return (
         <>
             <Box sx={{ minHeight: 500 }}>
@@ -88,7 +86,7 @@ const RequestsSentToSurveyorGeneral = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Requests sent to the Surveyor General
+            Requests from the Field Teams
                     </Typography>
                 </Box>
 
@@ -127,7 +125,7 @@ const RequestsSentToSurveyorGeneral = () => {
                                     <Typography sx={{fontSize:11, color:'gray'}}>
                                         Request Status
                                     </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, color: statusColors[task.status] ?? 'gray', textTransform:'capitalize'}}>
+                                    <Typography sx={{fontWeight:'bold', fontSize:12, color:'orange'}}>
                                         {task.status}
                                     </Typography>
                                 </Box>
@@ -145,4 +143,4 @@ const RequestsSentToSurveyorGeneral = () => {
     );
 };
 
-export default RequestsSentToSurveyorGeneral;
+export default RequestsFromFieldTeams;

@@ -327,6 +327,61 @@ const SideBar = () => {
         },
     ];
 
+    const RegOfficerOptions = [
+        {
+            id:1,
+            name: 'Dashboard',
+            address:''
+        },
+        {
+            id:2,
+            name: 'Property Queries',
+            address:'property-queries'
+        },
+        {
+            id:3,
+            name: 'Property Tax Queries',
+            address:'property-tax-queries'
+        },
+        {
+            id:4,
+            name: 'Assign Tasks To The Field Teams',
+            address:'assigned-field-teams-tasks'
+        },
+        {
+            id:5,
+            name: 'Requests From The Field Teams',
+            address:'field-teams-requests'
+        },
+        {
+            id:6,
+            name: 'Requests Sent To The SLTR Officer',
+            address:'sent-sltr-requests'
+        },
+        {
+            id:7,
+            name: 'Queries From The User',
+            address:'user-queries'
+        },
+
+        {
+            id:8,
+            name: 'Notifications',
+            address:'notifications'
+        },
+        {
+            id:9,
+            name: 'FAQS',
+            address:'faqs'
+        },
+        {
+            id:10,
+            name: 'Settings',
+            address:'settings'
+        },
+    ];
+
+
     const borderBottoms = {
     Settings:'none'
     };
@@ -549,6 +604,25 @@ const SideBar = () => {
 
                 {
                     user.role==='GIS Officer' && GISOfficerOptions.map((option) => (
+                        <ListItem disablePadding key={option.id}>
+                          <ListItemButton
+                              sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}
+                              component={Link}
+                              to={`/dashboard/${option.address}`}
+                          >
+                              <ListItemText
+                                  sx={{ color: '#26a69a', textTransform: 'uppercase', ml: 2 }}
+                                  primaryTypographyProps={{ fontSize: '12px' }}
+                                  primary={option.name}
+                              />
+                          </ListItemButton>                      
+                        </ListItem>
+                 
+                      ))
+                }
+
+                {
+                    user.role==='Registration Officer' && RegOfficerOptions.map((option) => (
                         <ListItem disablePadding key={option.id}>
                           <ListItemButton
                               sx={{ borderBottom: borderBottoms[option.name] ?? '1px solid lightgrey' }}

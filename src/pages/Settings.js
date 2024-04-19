@@ -72,7 +72,7 @@ const Settings = () => {
 
     return (
         <>
-            <Container sx={{minHeight:500, mb:10}}>
+            <Container sx={{minHeight:500, mb:16}}>
                 <Box sx={{display:'flex', marginLeft:"30%", mt:4, borderBottom:"1px solid lightgray", pb:2}}>
                     <Typography variant='h6'sx={{fontWeight:"bold", flexGrow:1}}>
                         Edit Profile

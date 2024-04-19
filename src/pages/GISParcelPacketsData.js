@@ -158,7 +158,7 @@ const GISParcelDataPackets = () => {
                                             {packet.regNo}
                                         </Typography>
                                     </Typography>
-                                    <ParcelDropDownMenu/>
+                                    <ParcelDropDownMenu parcel={packet}/>
                                 </Box>
                             </Box>
 

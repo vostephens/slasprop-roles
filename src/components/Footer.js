@@ -27,7 +27,7 @@ const Footer = () => {
                     backgroundColor: '#18784E',
                     color: 'white',
                     display: 'flex',
-                    borderBottom: '1px solid #1C8C5B'
+                    borderBottom: '1px solid #1C8C5B',
                 }}
             >
                 <Box sx={{ display: 'flex', flexDirection: 'column', py: 4, px: 10 }}>

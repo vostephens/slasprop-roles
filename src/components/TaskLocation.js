@@ -3,11 +3,9 @@ import React from 'react';
 import { Box } from '@mui/material';
 import { MapContainer, Marker, Popup } from 'react-leaflet';
 import { TileLayer } from 'react-leaflet/TileLayer';
-import { useAuth } from '../hooks/useAuth';
 
 const TaskLocation = () => {
 
-    const {user} = useAuth();
     const handleDragEnd = (e) => {
         const { lat, lng } = e.target.getLatLng();
         console.log(`Lat: ${lat}, Lon: ${lng}`);

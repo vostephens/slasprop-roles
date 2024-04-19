@@ -3,12 +3,17 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import Footer from '../components/Footer';
 import DropDownMenu from '../components/DropDownMenu';
+import { ClaimantsViewContext } from '../App';
 
-const RequestsSentToSurveyorGeneral = () => {
+const AssignedFieldTeamTasks = () => {
+
+    const myIsClaimants = React.useContext(ClaimantsViewContext);
+    myIsClaimants.setIsClaimants(true);
+    myIsClaimants.setIsMenuOpen(false);
 
     const tasks =[
         {
-            id: 'TASK36183681',
+            id: 'TASK36233181',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
             status:'pending',
@@ -42,7 +47,7 @@ const RequestsSentToSurveyorGeneral = () => {
             id: 'TASK36233681',
             createdAt:'10-12-2023 | 15:45 PM',
             sentOn:'10-12-2023 | 15:46 PM',
-            status:'approved',
+            status:'pending',
             deniedBy:'Indraniel Sen',
             reason:'Lorem Epsom is simply dummy text of the printing and typesetting industry',
             landType:'Sample Data',
@@ -72,12 +77,13 @@ const RequestsSentToSurveyorGeneral = () => {
 
     const statusColors = {
         pending:'#D4601E',
-        approved:'#09841D'
+        approved:'#09841D',
+        failed:'red'
     };
 
     return (
         <>
-            <Box sx={{ minHeight: 500 }}>
+            <Box sx={{ minHeight: 500, mb:18 }}>
                 <Box
                     sx={{
                         marginLeft: '25%',
@@ -88,51 +94,56 @@ const RequestsSentToSurveyorGeneral = () => {
                     }}
                 >
                     <Typography variant="h6" sx={{ fontWeight: 'bold', flexGrow: 1 }}>
-            Requests sent to the Surveyor General
+            Tasks to the Field Teams
                     </Typography>
                 </Box>
 
                 <Box sx={{display:'flex', flexDirection:'column', marginLeft: '25%',mt:1, p:1}}>
                     {
                         tasks.map((task) => (
-                            <Box sx={{display:'flex', border: '1px solid gray', mt:3, p:2, justifyContent:'space-between'}}>
-                                <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
-                                    <Typography sx={{fontSize:11, color:'gray'}}>
-                                        Task ID
-                                    </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                        {task.id}
-                                    </Typography>
-                                </Box>
+                        
+                            <Box sx={{mt:3}}>
+                                <Typography
+                                    sx={{
+                                        backgroundColor: statusColors[task.status] ?? 'grey',
+                                        textTransform: 'capitalize',
+                                        color: 'white',
+                                        maxWidth: 150,
+                                        fontSize: 14,
+                                        p: 1
+                                    }}
+                                >
+                                    Status: {task.status}
+                                </Typography>
+                                <Box sx={{display:'flex', p:2,border: '1px solid gray', justifyContent:'space-between'}}>
+                                    <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
+                                        <Typography sx={{fontSize:11, color:'gray'}}>
+                                            Task ID
+                                        </Typography>
+                                        <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
+                                            {task.id}
+                                        </Typography>
+                                    </Box>
 
-                                <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
-                                    <Typography sx={{fontSize:11, color:'gray'}}>
-                                        Task date & time
-                                    </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                        {task.createdAt}
-                                    </Typography>
-                                </Box>
+                                    <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
+                                        <Typography sx={{fontSize:11, color:'gray'}}>
+                                            Task date & time
+                                        </Typography>
+                                        <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
+                                            {task.createdAt}
+                                        </Typography>
+                                    </Box>
 
-                                <Box sx={{display:'flex', flexDirection:'column', borderRight:'1px solid lightgrey'}}>
-                                    <Typography sx={{fontSize:11, color:'gray'}}>
-                                        Task Sent on
-                                    </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
-                                        {task.sentOn}
-                                    </Typography>
+                                    <Box sx={{display:'flex', flexDirection:'column'}}>
+                                        <Typography sx={{fontSize:11, color:'gray'}}>
+                                            Task Sent on
+                                        </Typography>
+                                        <Typography sx={{fontWeight:'bold', fontSize:12, mr:10}}>
+                                            {task.sentOn}
+                                        </Typography>
+                                    </Box>
+                                    <DropDownMenu task= {task}/>                                
                                 </Box>
-
-                                <Box sx={{display:'flex', flexDirection:'column'}}>
-                                    <Typography sx={{fontSize:11, color:'gray'}}>
-                                        Request Status
-                                    </Typography>
-                                    <Typography sx={{fontWeight:'bold', fontSize:12, color: statusColors[task.status] ?? 'gray', textTransform:'capitalize'}}>
-                                        {task.status}
-                                    </Typography>
-                                </Box>
-
-                                <DropDownMenu task= {task}/>                                
                             </Box>
                         ))
                     }
@@ -145,4 +156,4 @@ const RequestsSentToSurveyorGeneral = () => {
     );
 };
 
-export default RequestsSentToSurveyorGeneral;
+export default AssignedFieldTeamTasks;

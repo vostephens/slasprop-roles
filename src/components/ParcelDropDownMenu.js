@@ -6,11 +6,11 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { Box } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
-import TagCoordinatesDialog from '../modals/TagCoordinatesDialog';
 
 const ParcelDropDownMenu = (props) => {
 
     const {user} = useAuth();
+    let temp = (user.role==='Sensitization Officer'&& 'schedule-task-details') || 'task-details';
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -40,8 +40,14 @@ const ParcelDropDownMenu = (props) => {
                     'aria-labelledby': 'basic-button'
                 }}
             >
-                <MenuItem onClick={handleClose}> Edit</MenuItem>
-                <MenuItem> <TagCoordinatesDialog /></MenuItem>
+                <MenuItem
+                    onClick={handleClose}
+                    component={Link}
+                    to={`/dashboard/${temp}/${props.parcel.id}`}
+                    state={{ task: props.parcel }}
+                >
+            Details
+                </MenuItem>
             </Menu>
         </Box>
     );
