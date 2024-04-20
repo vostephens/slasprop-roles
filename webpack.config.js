@@ -3,23 +3,14 @@ const path = require('path');
 
 module.exports = {
   entry: './index.js',
-  mode: 'development',
+  mode: 'production',
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'index_bundle.js',
+    path: path.resolve(__dirname, 'build'), // change this
+    publicPath: '/',
+    filename: 'bundle.js'
   },
-  target: 'web',
   devServer: {
-    port: '5000',
-    static: {
-      directory: path.join(__dirname, 'public')
-},
-    open: true,
-    hot: true,
-    liveReload: true,
-  },
-  resolve: {
-    extensions: ['.js', '.jsx', '.json'],
+    static: "./build",
   },
   module: {
     rules: [
