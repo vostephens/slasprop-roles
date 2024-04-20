@@ -40,7 +40,7 @@ const Location = (props) => {
             <Box>
                 {user.role!=='Registration Officer' && <Claimants task ={props.task}/>}
                 {(user.role==='Registration Officer' && props.isClaimants===true) && <Claimants task ={props.task}/>}
-                {(user.role==='Registration Officer' && props.isClaimants===false) && <OwnerDetails property ={props.property}/>}
+                {(user.role==='Registration Officer' && !props.isClaimants) && <OwnerDetails property ={props.property}/>}
             </Box>
         </Box>
     );
